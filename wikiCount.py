@@ -101,7 +101,7 @@ def makeSpreadsheet(dic):
         newWorkbook['A{}'.format(row)].value = year
         newWorkbook['B{}'.format(row)].value = wordCount
 
-    #save
+    #save you'll have to change the file path based on where you want it saved
     xlsxFile.save("C:/Users/" + getpass.getuser() + "/Desktop/" + fileName)
     excelFileData = openpyxl.load_workbook("C:/Users/" + getpass.getuser() + "/Desktop/" + fileName)
     excelFileData.sheetnames
@@ -130,4 +130,5 @@ def createGraph(sheetValues, newWorkbook, xlsxFile):
     data = Reference(sheetValues, min_row = 2, max_row = 15, min_col = 1, max_col = 2)
     chart.add_data(data, from_rows = True, titles_from_data = True)
     newWorkbook.add_chart(chart, "A18")
+    #again, you'll have to change the file path based on where you want it saved
     xlsxFile.save("C:/Users/" + getpass.getuser() + "/Desktop/" + "wordCounts.xlsx")
